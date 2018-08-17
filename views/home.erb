@@ -1,0 +1,9 @@
+<% @posts.each do |p| %>
+<h2><%= p.title %></h2><p> <%= p.body %></h2>
+  <% end %>
+<h1>Add a comment</h1>
+<form class="" action="/" method="post">
+  <input type="text" name="title"><br>
+  <textarea name="body"></textarea>
+  <input type="submit" value="Post">
+</form>

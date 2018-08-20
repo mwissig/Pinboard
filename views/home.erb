@@ -1,11 +1,35 @@
+
+<div class="grid">
+
+  <div>
+    <canvas id="draw" style="background-color: white; margin: 5px; border: 1px solid black; border-radius: 10px;  box-shadow: 2px 2px 2px black;"></canvas>
+  </div>
+  <div class="buttons">
+    <div class="colors">
+      <button style="background-color: #000000; color: white;" onclick="brushColor('000000')"></button>
+      <button style="background-color: #ff0000;" onclick="brushColor('ff0000')"></button>
+      <button style="background-color: #ff9900;" onclick="brushColor('ff9900')"></button>
+      <button style="background-color: #ffff00;" onclick="brushColor('ffff00')"></button>
+      <button style="background-color: #00ff00;" onclick="brushColor('00ff00')"></button>
+      <button style="background-color: #0000ff;" onclick="brushColor('0000ff')"></button>
+      <button style="background-color: #ff00ff;" onclick="brushColor('ff00ff')"></button>
+      <button style="background-color: #ffffff;" onclick="brushColor('ffffff')"></button>
+    </div>
+    <div class="slider">
+
+      <input id="width" onmouseover="showTheSize();" onclick="showTheSize();" type="range" min="1" max="100" value="25" style="width: 150px; transform: rotate(270deg);"></input>
+            <p id="showSize"></p>
+    </div>
+  </div>
+</div>
 <% @posts.each do |p| %>
-<h2><%= p.title %></h2><p> <%= p.body %></h2>
-  <% end %>
+  <h2><%= p.title %></h2>
+  <p>
+    <%= p.body %></h2>
+<% end %>
 <h1>Add a comment</h1>
 <form class="" action="/" method="post">
   <input type="text" name="title"><br>
   <textarea name="body"></textarea>
   <input type="submit" value="Post">
 </form>
-<input id="hex" placeholder="enter hex color"></input>
-  <canvas id="draw"></canvas>

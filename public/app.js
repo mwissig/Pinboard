@@ -7,7 +7,7 @@ resize();
 
 // resize canvas when window is resized
 function resize() {
-  ctx.canvas.width = window.innerWidth;
+  ctx.canvas.width = window.innerWidth - 150;
   ctx.canvas.height = window.innerHeight;
 }
 
@@ -18,7 +18,10 @@ document.addEventListener("mousedown", setPosition);
 document.addEventListener("mouseenter", setPosition);
 
 // last known position
-var pos = { x: 0, y: 0 };
+var pos = {
+  x: 0,
+  y: 0
+};
 
 // new position from mouse events
 function setPosition(e) {
@@ -26,16 +29,22 @@ function setPosition(e) {
   pos.y = e.clientY;
 }
 
+function brushColor(color) {
+  col = color
+}
+
 function draw(e) {
   if (e.buttons !== 1) return; // if mouse is pressed.....
 
-  var color = document.getElementById("hex").value;
-
+  // var color = document.getElementById("hex").value;
+  var color = col;
+  var width = document.getElementById("width").value;
+showTheSize();
   ctx.beginPath(); // begin the drawing path
 
-  ctx.lineWidth = 20; // width of line
+  ctx.lineWidth = width; // width of line
   ctx.lineCap = "round"; // rounded end cap
-  ctx.strokeStyle = color; // hex color of line
+  ctx.strokeStyle = "#" + color; // hex color of line
 
   ctx.moveTo(pos.x, pos.y); // from position
   setPosition(e);
@@ -46,6 +55,18 @@ function draw(e) {
 // save canvas image as data url (png format by default)
 var dataURL = canvas.toDataURL();
 
-      // set canvasImg image src to dataURL
-      // so it can be saved as an image
-      document.getElementById('canvasImg').src = dataURL;
+// set canvasImg image src to dataURL
+// so it can be saved as an image
+document.getElementById('canvasImg').src = dataURL;
+
+function prepareImg() {
+  var canvas = document.getElementById('canv');
+  document.getElementById('inp_img').value = canvas.toDataURL();
+}
+
+function showTheSize() {
+    var width = document.getElementById("width").value;
+  document.getElementById("showSize").innerHTML = width + "px";
+}
+
+showTheSize();

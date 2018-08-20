@@ -1,3 +1,31 @@
 html {
   background-color: yellow;
 }
+button {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+    margin: 5px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: auto 100px;
+}
+.buttons {
+  display: grid;
+  height: 100%;
+  max-width: 80px !important;
+  grid-template-rows: auto auto;
+}
+.colors {
+    max-width: 80px !important;
+    text-align: right;
+}
+#width {
+  margin-top: 100px;
+}
+input {
+  display: block;
+}
